@@ -6,6 +6,13 @@ Kernel: 5.0.2-1.el7.elrepo.x86_64
 CPU: AMD FX(tm)-8350 Eight-Core Processor
 Memory: 16G
 
+Kernel upgrade:
+ - rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+ - rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm 
+ - yum --disablerepo="*" --enablerepo="elrepo-kernel" list available
+ - yum --enablerepo=elrepo-kernel install kernel-ml
+
+
 Kernel command line:
 BOOT_IMAGE=/vmlinuz-5.0.2-1.el7.elrepo.x86_64 root=/dev/mapper/centos-root ro crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb isolcpus=7
 
