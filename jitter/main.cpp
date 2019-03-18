@@ -21,7 +21,7 @@ int main(int argc, char** argv){
   auto task_size  = std::atoi(argv[1]);
   auto task_count = std::atoi(argv[2]);
 
-  std::cout << "Running " << task_size << " tasks of size " << task_count << "\n";
+  std::cout << "# Running " << task_size << " tasks of size " << task_count << "\n";
 
   auto t1 = std::chrono::high_resolution_clock::now();
   auto cycles = experiment(task_size, task_count);
@@ -32,6 +32,6 @@ int main(int argc, char** argv){
   for (auto i : cycles)
     std::cout << i << "\n";
 
-  std::cout << "Completed " << task_count << " experiments "
+  std::cout << "# Completed " << task_count << " experiments "
             << " in " << time_span.count() << " seconds \n";
 }
