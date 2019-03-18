@@ -14,7 +14,7 @@ Kernel upgrade:
 
 
 Kernel command line:
-BOOT_IMAGE=/vmlinuz-5.0.2-1.el7.elrepo.x86_64 root=/dev/mapper/centos-root ro crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb isolcpus=7
+BOOT_IMAGE=/vmlinuz-5.0.2-1.el7.elrepo.x86_64 root=/dev/mapper/centos-root ro crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb isolcpus=7 nohz_full=7 rcu_nocbs=7
 
 Note:
  - irqbalance will automatically ban core 7 from interrupts (since RHEL 7.2).
