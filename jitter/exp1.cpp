@@ -3,13 +3,10 @@
 
 using namespace std;
 
-
-int iterations = 1000;
-
 __attribute__((noinline))
-void work() {
+void task(int iterations) {
   volatile int i = 0;
-  while(i < iterations) i++;  
+  while(i < iterations) i++;
 }
 
 inline uint64_t cycles() noexcept {
@@ -21,19 +18,14 @@ inline uint64_t cycles() noexcept {
 std::vector<uint64_t> cycle_counter;
 
 
-void experiment1(){
+std::vector<uint64_t>& experiment(int task_size = 1000, int task_count = 1000) {
 
-  for (int i = 0; i<iterations; i++) {
-    auto t1 = cycles();    
-    work();
-    auto t2 = cycles();    
+  for (int i = 0; i < task_count; i++) {
+    auto t1 = cycles();
+    task(task_size);
+    auto t2 = cycles();
     cycle_counter.push_back(t2 - t1);
   }
-  std::cout << "Measured " << cycle_counter.size() << "iterations \n";
 
-  for (auto i : cycle_counter)
-    std::cout << i << "\n";
-    
-}  
-
-
+  return cycle_counter;
+}
