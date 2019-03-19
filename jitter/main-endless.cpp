@@ -4,10 +4,8 @@
 #include <ratio>
 #include <chrono>
 
-std::vector<uint64_t>& experiment(int tasksize = 1000, int task_count = 1000);
-
 void usage(const char* prog) {
-  std::cout << "Usage: \n" << prog << " task_size task_count \n";
+  std::cout << "Usage: \n" << prog << " task_size log_threshold \n";
   exit(42);
 }
 
@@ -19,12 +17,14 @@ int main(int argc, char** argv){
   }
 
   auto task_size  = std::atoi(argv[1]);
-  auto task_count = std::atoi(argv[2]);
+  auto log_threshold = std::atoi(argv[2]);
 
-  std::cout << "# Running " << task_size << " tasks of size " << task_count << "\n";
+  std::cout << "# Running " << task_size << " with log_threshold " << log_threshold << "\n";
 
   auto t1 = std::chrono::high_resolution_clock::now();
-  auto cycles = experiment(task_size, task_count);
+
+  int cycles = experiment(task_size, task_count);
+
   auto t2 = std::chrono::high_resolution_clock::now();
 
   auto time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
