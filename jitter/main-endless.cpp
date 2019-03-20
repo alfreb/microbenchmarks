@@ -4,6 +4,8 @@
 #include <ratio>
 #include <chrono>
 
+std::vector<uint64_t>& experiment(int tasksize = 1000, int task_count = 1000);
+
 void usage(const char* prog) {
   std::cout << "Usage: \n" << prog << " task_size log_threshold \n";
   exit(42);
@@ -23,7 +25,7 @@ int main(int argc, char** argv){
 
   auto t1 = std::chrono::high_resolution_clock::now();
 
-  int cycles = experiment(task_size, task_count);
+  auto cycles = experiment(task_size, log_threshold);
 
   auto t2 = std::chrono::high_resolution_clock::now();
 
@@ -32,6 +34,6 @@ int main(int argc, char** argv){
   for (auto i : cycles)
     std::cout << i << "\n";
 
-  std::cout << "# Completed " << task_count << " experiments "
+  std::cout << "# Completed " << log_threshold << " experiments "
             << " in " << time_span.count() << " seconds \n";
 }
