@@ -14,7 +14,8 @@ Kernel upgrade:
 
 
 Kernel command line:
-BOOT_IMAGE=/vmlinuz-5.0.2-1.el7.elrepo.x86_64 root=/dev/mapper/centos-root ro crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb isolcpus=7 nohz_full=7 rcu_nocbs=7
+
+BOOT_IMAGE=/vmlinuz-5.0.2-1.el7.elrepo.x86_64 root=/dev/mapper/centos-root ro crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb isolcpus=7 nohz_full=7 rcu_nocbs=7 tsc=reliable
 
 Note:
  - irqbalance will automatically ban core 7 from interrupts (since RHEL 7.2).
@@ -23,6 +24,9 @@ Note:
  - CPU core 6 is used to collect data on non-isolated core.
  - CPU core 7 is used to collect data on isolated core.
 
+Set workqueue cpu mask:
+
+echo 1 > /sys/devices/virtual/workqueue/cpumask
 
 Disable freq boost:
 echo 0 > /sys/devices/system/cpu/cpufreq/boost
