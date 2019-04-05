@@ -1,7 +1,11 @@
 FLAGS=-std=c++11
 
-all: exp1.o main.o exp-endless.o main-endless.o
+all: main main-endless
+
+main: main.o exp1.o 
 	${CXX} ${FLAGS} main.o exp1.o -o main
+
+main-endless: main-endless.o exp-endless.o
 	${CXX} ${FLAGS} main-endless.o exp-endless.o -o main-endless
 
 main.o: 
