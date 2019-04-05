@@ -28,10 +28,14 @@ int main(int argc, char** argv){
   auto t2 = std::chrono::high_resolution_clock::now();
 
   auto time_span = std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1);
-
+  std::cout<<","
   for (auto i : cycles)
-    std::cout << i << "\n";
-
+    std::cout << i << ",";
+  std::cout<<"\n";
+  
   std::cout << "# Completed " << task_count << " experiments "
             << " in " << time_span.count() << " seconds \n";
+  std::cerr << "# Completed " << task_count << " experiments "
+            << " in " << time_span.count() << " seconds \n";
+  return 0;
 }
