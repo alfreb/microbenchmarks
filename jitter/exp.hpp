@@ -29,7 +29,7 @@ inline uint64_t cycles_end() noexcept {
 }
 
 
-#define ASM_TASK_SIZE "20"
+#define ASM_TASK_SIZE "1000"
 #define STR(A) #A
 
 inline void task_asm() {
@@ -40,3 +40,5 @@ inline void task_asm() {
     "jnz .task_asm_loop\n"
     ::: "%rsi");
 }
+
+inline void task_dummy() { };

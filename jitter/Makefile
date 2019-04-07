@@ -1,6 +1,7 @@
-FLAGS=-std=c++11 -O0
+CXX=clang++-6.0
+FLAGS=-std=c++11 -O2
 
-all: main main-endless
+all: main main-asm main-endless
 
 main: main.o exp1.o
 	${CXX} ${FLAGS} main.o exp1.o -o $@

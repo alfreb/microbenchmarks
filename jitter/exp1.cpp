@@ -17,6 +17,7 @@ std::vector<uint64_t>& experiment(int task_size = 1000, int task_count = 1000) {
     auto t1 = cycles_start();
     task(task_size);
     auto t2 = cycles_end();
+    auto res = t2 - t1;
     cycle_counter[i] = t2 - t1;
   }
 

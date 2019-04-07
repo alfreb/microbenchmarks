@@ -5,7 +5,7 @@
 
 using namespace std;
 
-std::vector<uint64_t> cycle_counter;
+alignas(4096) std::vector<uint64_t> cycle_counter; 
 
 std::vector<uint64_t>& experiment(int task_size = 1000, int task_count = 1000) {
 

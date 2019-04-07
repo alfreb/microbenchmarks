@@ -5,7 +5,7 @@ include(${CMAKE_CURRENT_BINARY_DIR}/conanbuildinfo.cmake OPTIONAL RESULT_VARIABL
 conan_basic_setup()
 include(os)
 
-os_add_executable(hello "Hello world - OS included" main_jitter.cpp ../exp1.cpp)
+os_add_executable(hello "Hello world - OS included" main_jitter.cpp ../exp2.cpp)
 os_add_drivers(hello boot_logger vga_emergency) #e1000
 # os_add_plugins(hello autoconf)
 os_add_stdout(hello vga_output)
