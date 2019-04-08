@@ -29,7 +29,7 @@ inline uint64_t cycles_end() noexcept {
 }
 
 
-#define ASM_TASK_SIZE "1000"
+#define ASM_TASK_SIZE "50000"
 #define STR(A) #A
 
 inline void task_asm() {
